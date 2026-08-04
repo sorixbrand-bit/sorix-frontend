@@ -18,6 +18,7 @@ interface ApiProduct {
   _id: string;
   name: string;
   category?: { name: string; _id?: string };
+  subcategory?: { name: string; _id?: string };
   variants?: Array<{
     images?: string[];
     price?: number;
@@ -78,7 +79,10 @@ const ShopProductsList = () => {
       if (categories) {
         const selected = categories.split(",").map(c => c.trim().toLowerCase()).filter(Boolean);
         if (selected.length > 0) {
-          filtered = filtered.filter(p => selected.includes((p.category || "").toLowerCase().trim()));
+          filtered = filtered.filter(p =>
+            selected.includes((p.category || "").toLowerCase().trim()) ||
+            selected.includes((p.subcategory || "").toLowerCase().trim())
+          );
         }
       }
       if (minPrice || maxPrice) {
@@ -133,6 +137,7 @@ const ShopProductsList = () => {
               id: p._id,
               title: p.name,
               category: p.category?.name || "General",
+              subcategory: p.subcategory?.name || "",
               srcUrl: v?.images?.[0] || "/images/pic1.png",
               gallery: v?.images || [],
               price: v?.price || 0,

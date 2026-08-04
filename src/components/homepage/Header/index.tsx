@@ -236,8 +236,8 @@ export default function HeroBanner() {
           font-weight: 500;
           letter-spacing: 0.18em;
           text-transform: uppercase;
-          color: #D4AF37;
-          border: 1px solid #D4AF37;
+          color: #FFFFFF;
+          border: 1px solid #FFFFFF;
           padding: 5px 14px;
           margin-bottom: 22px;
           opacity: 0;
@@ -252,7 +252,7 @@ export default function HeroBanner() {
           font-weight: 300;
           line-height: 1.05;
           letter-spacing: -0.01em;
-          color: #D4AF37;
+          color: #FFFFFF;
           white-space: pre-line;
           margin: 0 0 20px;
           opacity: 0;
@@ -286,8 +286,8 @@ export default function HeroBanner() {
         .banner-content.center .btn-row { justify-content: center; }
 
         .btn-primary {
-          background: #D4AF37;
-          color: #070707;
+          background: #FFFFFF;
+          color: #111111;
           font-family: 'DM Sans', sans-serif;
           font-size: 0.8rem;
           font-weight: 500;
@@ -298,22 +298,22 @@ export default function HeroBanner() {
           cursor: pointer;
           transition: background 0.25s, transform 0.2s;
         }
-        .btn-primary:hover { background: #b8932c; transform: translateY(-2px); }
+        .btn-primary:hover { background: #E5E5E5; transform: translateY(-2px); }
 
         .btn-ghost {
           background: transparent;
-          color: #D4AF37;
+          color: #FFFFFF;
           font-family: 'DM Sans', sans-serif;
           font-size: 0.8rem;
           font-weight: 500;
           letter-spacing: 0.1em;
           text-transform: uppercase;
           padding: 14px 34px;
-          border: 1px solid #D4AF37;
+          border: 1px solid #FFFFFF;
           cursor: pointer;
           transition: background 0.25s, color 0.25s, transform 0.2s;
         }
-        .btn-ghost:hover { background: #D4AF37; color: #070707; transform: translateY(-2px); }
+        .btn-ghost:hover { background: #FFFFFF; color: #111111; transform: translateY(-2px); }
 
         /* ── progress bar ── */
         .progress-bar {
@@ -342,12 +342,12 @@ export default function HeroBanner() {
           backdrop-filter: blur(6px);
         }
         .arrow-btn:hover {
-          background: #D4AF37;
-          border-color: #D4AF37;
+          background: #FFFFFF;
+          border-color: #FFFFFF;
           transform: translateY(-50%) scale(1.08);
         }
-        .arrow-btn:hover svg { stroke: #070707; }
-        .arrow-btn svg { stroke: #D4AF37; transition: stroke 0.2s; }
+        .arrow-btn:hover svg { stroke: #111111; }
+        .arrow-btn svg { stroke: #FFFFFF; transition: stroke 0.2s; }
         .arrow-left  { left: 28px; }
         .arrow-right { right: 28px; }
 
@@ -366,14 +366,14 @@ export default function HeroBanner() {
           width: 7px;
           height: 7px;
           border-radius: 50%;
-          border: 1px solid #D4AF37;
+          border: 1px solid #FFFFFF;
           background: transparent;
           cursor: pointer;
           padding: 0;
           transition: background 0.25s, transform 0.2s;
         }
         .dot.active {
-          background: #D4AF37;
+          background: #FFFFFF;
           transform: scale(1.3);
         }
 
@@ -387,7 +387,7 @@ export default function HeroBanner() {
           letter-spacing: 0.12em;
           color: #666;
         }
-        .slide-counter span { color: #D4AF37; font-weight: 500; }
+        .slide-counter span { color: #FFFFFF; font-weight: 500; }
 
         @keyframes fadeUp {
           to { opacity: 1; transform: translateY(0); }

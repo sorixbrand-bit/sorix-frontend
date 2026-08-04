@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleCategory } from "@/lib/features/filters/filtersSlice";
 import type { RootState } from "@/lib/store";
 
-type Category = { _id?: string; name: string; slug: string };
+type Category = { _id?: string; name: string; slug: string; parent?: string | null | { _id: string; name: string } };
 
 const CategoriesSection = () => {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -54,6 +54,8 @@ const CategoriesSection = () => {
     fetchCategories();
   }, [api]);
 
+  const parents = categories.filter(c => !c.parent);
+
   return (
     <Accordion type="single" collapsible defaultValue="filter-category">
       <AccordionItem value="filter-category" className="border-none">
@@ -68,21 +70,45 @@ const CategoriesSection = () => {
               ))}
             </div>
           ) : categories.length > 0 ? (
-            <div className="flex flex-col space-y-2">
-              {categories.map((cat) => (
-                <label key={cat.name} className="flex items-center space-x-2 cursor-pointer py-1">
-                  <input
-                    type="checkbox"
-                    checked={selectedCategories.includes(cat.name)}
-                    onChange={() => dispatch(toggleCategory(cat.name))}
-                    className="w-4 h-4 rounded border-white/30 cursor-pointer"
-                  />
-                  <span className="text-sm text-white/60">{cat.name}</span>
-                </label>
-              ))}
+            <div className="flex flex-col space-y-3">
+              {parents.map((parent) => {
+                const children = categories.filter(c => {
+                  const parentId = typeof c.parent === "object" && c.parent ? c.parent._id : c.parent;
+                  return parentId === parent._id;
+                });
+                return (
+                  <div key={parent.name} className="flex flex-col space-y-1">
+                    <label className="flex items-center space-x-2 cursor-pointer py-1 font-semibold text-black">
+                      <input
+                        type="checkbox"
+                        checked={selectedCategories.includes(parent.name)}
+                        onChange={() => dispatch(toggleCategory(parent.name))}
+                        className="w-4 h-4 rounded border-black/30 cursor-pointer"
+                      />
+                      <span>{parent.name}</span>
+                    </label>
+
+                    {children.length > 0 && (
+                      <div className="pl-5 flex flex-col space-y-1 border-l border-black/10 ml-2">
+                        {children.map((sub) => (
+                          <label key={sub.name} className="flex items-center space-x-2 cursor-pointer py-0.5">
+                            <input
+                              type="checkbox"
+                              checked={selectedCategories.includes(sub.name)}
+                              onChange={() => dispatch(toggleCategory(sub.name))}
+                              className="w-3.5 h-3.5 rounded border-black/30 cursor-pointer"
+                            />
+                            <span className="text-sm text-black/60">{sub.name}</span>
+                          </label>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           ) : (
-            <div className="text-sm text-white/60">No categories found</div>
+            <div className="text-sm text-black/60">No categories found</div>
           )}
         </AccordionContent>
       </AccordionItem>

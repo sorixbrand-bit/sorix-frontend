@@ -26,57 +26,61 @@
 
 @layer base {
   :root {
-    --background: 0 0% 5%;
-    --foreground: 45 30% 92%;
-    --card: 0 0% 8%;
-    --card-foreground: 45 30% 92%;
-    --popover: 0 0% 8%;
-    --popover-foreground: 45 30% 92%;
-    --primary: 45 64% 52%;
-    --primary-foreground: 0 0% 5%;
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 45 30% 92%;
-    --muted: 0 0% 12%;
-    --muted-foreground: 40 10% 60%;
-    --accent: 45 64% 15%;
-    --accent-foreground: 45 64% 52%;
+    --background: 0 0% 89.8%;
+    --foreground: 0 0% 6.7%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 6.7%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 6.7%;
+    --primary: 0 0% 6.7%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 100%;
+    --secondary-foreground: 0 0% 6.7%;
+    --muted: 0 0% 100%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 0 0% 100%;
+    --accent-foreground: 0 0% 6.7%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 45 64% 52%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 80%;
+    --input: 0 0% 80%;
+    --ring: 0 0% 6.7%;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    --font-satoshi: var(--font-inter);
+    --font-integralCF: var(--font-montserrat);
   }
   .dark {
-    --background: 0 0% 5%;
-    --foreground: 45 30% 92%;
-    --card: 0 0% 8%;
-    --card-foreground: 45 30% 92%;
-    --popover: 0 0% 8%;
-    --popover-foreground: 45 30% 92%;
-    --primary: 45 64% 52%;
-    --primary-foreground: 0 0% 5%;
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 45 30% 92%;
-    --muted: 0 0% 12%;
-    --muted-foreground: 40 10% 60%;
-    --accent: 45 64% 15%;
-    --accent-foreground: 45 64% 52%;
+    --background: 0 0% 6.7%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 6.7%;
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 0 0% 20%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 45 64% 52%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 0% 100%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    --font-satoshi: var(--font-inter);
+    --font-integralCF: var(--font-montserrat);
   }
 }
 
@@ -86,14 +90,25 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-inter), sans-serif;
+  }
+
+  /* Headings use Montserrat */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-montserrat), sans-serif;
+    font-weight: 700;
+  }
+
+  /* Apply Montserrat SemiBold to buttons and inputs inside the user site */
+  button, .btn-primary, .btn-ghost, .btn-sm {
+    font-family: var(--font-montserrat), sans-serif !important;
+    font-weight: 600 !important;
   }
   
-  /* Filter black SVG icons to render in a luxurious gold/white hue */
-  img[src*="cart.svg"], 
-  img[src*="search.svg"], 
+  /* Keep icons clean black or gray, no gold filters */
   img[src*="envelope.svg"], 
   img[src*="close.svg"] {
-    filter: invert(0.9) sepia(0.6) saturate(2) hue-rotate(15deg);
+    filter: opacity(0.8);
   }
 
   /* Override arbitrary backgrounds to match dark card/secondary styles */
@@ -113,27 +128,27 @@
     border-color: hsl(var(--border)) !important;
   }
   .placeholder\:text-black\/40::placeholder {
-    color: hsla(45, 10%, 90%, 0.45) !important;
+    color: hsla(0, 0%, 6.7%, 0.45) !important;
   }
   .hover\:text-white:hover {
     color: hsl(var(--primary-foreground)) !important;
   }
 
-  /* Override Tailwind's semi-transparent black text classes to fit dark background */
+  /* Override Tailwind's semi-transparent black text classes to fit light background */
   .text-black\/60 {
-    color: hsla(45, 10%, 90%, 0.6) !important;
+    color: hsla(0, 0%, 6.7%, 0.6) !important;
   }
   .text-black\/50 {
-    color: hsla(45, 10%, 90%, 0.5) !important;
+    color: hsla(0, 0%, 6.7%, 0.5) !important;
   }
   .text-black\/40 {
-    color: hsla(45, 10%, 90%, 0.4) !important;
+    color: hsla(0, 0%, 6.7%, 0.4) !important;
   }
   .text-black\/30 {
-    color: hsla(45, 10%, 90%, 0.3) !important;
+    color: hsla(0, 0%, 6.7%, 0.3) !important;
   }
   .text-black\/5 {
-    color: hsla(45, 10%, 90%, 0.05) !important;
+    color: hsla(0, 0%, 6.7%, 0.05) !important;
   }
 
   /* Override transparent black borders */
@@ -147,7 +162,7 @@
     border-color: hsl(var(--border)) !important;
   }
 
-  /* Map bg-black (originally black buttons/banners) to Gold */
+  /* Map bg-black (originally black buttons/banners) to Black */
   .bg-black {
     background-color: hsl(var(--primary)) !important;
   }
@@ -157,9 +172,9 @@
     color: hsl(var(--primary-foreground)) !important;
   }
 
-  /* Handle hovers */
+  /* Handle hovers to keep premium dark gray minimal look */
   .hover\:bg-black:hover {
-    background-color: #b8932c !important;
+    background-color: #333333 !important;
     color: hsl(var(--primary-foreground)) !important;
   }
 }

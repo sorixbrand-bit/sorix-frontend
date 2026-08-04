@@ -13,7 +13,7 @@ type Suggestion = {
   srcUrl: string;
 };
 
-const SearchInput = () => {
+const SearchInput = ({ autoFocus }: { autoFocus?: boolean }) => {
   const router = useRouter();
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
@@ -101,19 +101,20 @@ const SearchInput = () => {
   return (
     <div className="relative w-full md:mr-3 lg:mr-10">
       <form onSubmit={handleSearch}>
-        <InputGroup className="flex bg-[#F0F0F0]">
+        <InputGroup className="flex bg-[#222222] border border-[#333333]">
           <InputGroup.Text>
-            <Image priority src="/icons/search.svg" height={20} width={20} alt="search" className="min-w-5 min-h-5" />
+            <Image priority src="/icons/search.svg" height={20} width={20} alt="search" className="min-w-5 min-h-5 filter brightness-0 invert" />
           </InputGroup.Text>
           <InputGroup.Input
             ref={inputRef}
             type="search"
             name="search"
             placeholder="Search for products..."
-            className="bg-transparent placeholder:text-black/40"
+            className="bg-transparent text-white placeholder:text-white/40"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onFocus={() => query && suggestions.length > 0 && setShowSuggestions(true)}
+            autoFocus={autoFocus}
           />
         </InputGroup>
       </form>
@@ -121,7 +122,7 @@ const SearchInput = () => {
       {showSuggestions && (
         <div
           ref={suggestionsRef}
-          className="absolute top-full left-0 right-0 mt-1 bg-card border border-border rounded-lg shadow-lg z-50 max-h-80 overflow-y-auto"
+          className="absolute top-full left-0 right-0 mt-1 bg-white border border-[#E5E5E5] rounded-lg shadow-lg z-50 max-h-80 overflow-y-auto"
         >
           {isLoading ? (
             <div className="p-4 space-y-3">
@@ -136,32 +137,32 @@ const SearchInput = () => {
               ))}
             </div>
           ) : suggestions.length > 0 ? (
-            <div className="divide-y divide-black/5">
+            <div className="divide-y divide-gray-100">
               {suggestions.map((p) => (
                 <button
                   key={p.id}
                   onClick={() => handleSuggestionClick(p.id, p.title)}
-                  className="w-full flex items-center gap-3 p-3 hover:bg-[#F0F0F0] transition-colors text-left"
+                  className="w-full flex items-center gap-3 p-3 hover:bg-[#E5E5E5] transition-colors text-left"
                 >
                   <div className="relative w-12 h-12 flex-shrink-0 rounded bg-[#F0F0F0] overflow-hidden">
                     <Image src={p.srcUrl} alt={p.title} fill className="object-cover" unoptimized />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-black truncate">{p.title}</p>
-                    <p className="text-xs text-white/60">{p.category}</p>
-                    <p className="text-sm font-semibold text-black mt-0.5">₹{p.price}</p>
+                    <p className="text-sm font-medium text-[#111111] truncate">{p.title}</p>
+                    <p className="text-xs text-gray-500">{p.category}</p>
+                    <p className="text-sm font-semibold text-[#111111] mt-0.5">₹{p.price}</p>
                   </div>
                 </button>
               ))}
               <button
                 onClick={() => { router.push(`/shop?search=${encodeURIComponent(query)}`); setShowSuggestions(false); }}
-                className="w-full p-3 text-center text-sm font-medium text-black hover:bg-[#F0F0F0] transition-colors"
+                className="w-full p-3 text-center text-sm font-medium text-[#111111] hover:bg-[#E5E5E5] transition-colors"
               >
                 View all results for "{query}"
               </button>
             </div>
           ) : (
-            <div className="p-4 text-center text-white/60 text-sm">No products found</div>
+            <div className="p-4 text-center text-gray-500 text-sm">No products found</div>
           )}
         </div>
       )}

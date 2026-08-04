@@ -10,13 +10,13 @@ const footerLinksData: FooterLinks[] = [
     children: [
       {
         id: 11,
-        label: "Email: Shameenaharis1272@gmail.com",
-        url: "mailto:Shameenaharis1272@gmail.com",
+        label: "Email: sorixbrand@gmail.com",
+        url: "mailto:sorixbrand@gmail.com",
       },
       {
         id: 12,
-        label: "Contact Number: 9562321272",
-        url: "tel:9562321272",
+        label: "Contact Number: 8592950274",
+        url: "tel:8592950274",
       },
     ],
   },
@@ -27,7 +27,7 @@ const LinksSection = () => {
     <>
       {footerLinksData.map((item) => (
         <section className="flex flex-col mt-5 col-span-2 col-start-1 items-center text-center sm:col-start-2 sm:col-span-2" key={item.id}>
-          <h3 className="font-medium text-sm md:text-base uppercase tracking-widest mb-6">
+          <h3 className="font-medium text-sm md:text-base uppercase tracking-widest mb-6 text-white">
             {item.title}
           </h3>
           {item.children.map((link) => (
@@ -36,7 +36,7 @@ const LinksSection = () => {
               key={link.id}
               className={cn([
                 !link.url.startsWith("mailto:") && !link.url.startsWith("tel:") && "capitalize",
-                "text-muted-foreground hover:text-primary transition-all text-sm md:text-base mb-4 w-fit break-all text-center",
+                "text-gray-400 hover:text-white transition-all text-sm md:text-base mb-4 w-fit break-all text-center",
               ])}
             >
               {link.label}

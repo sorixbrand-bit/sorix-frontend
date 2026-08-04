@@ -23,6 +23,7 @@ export type Product = {
   id: number | string;
   title: string;
   category?: string;
+  subcategory?: string;
   description?: string;
   srcUrl: string;
   gallery?: string[];
