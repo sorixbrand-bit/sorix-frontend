@@ -8,10 +8,18 @@ const api = process.env.NEXT_PUBLIC_API_URL;
 
 async function getProducts(): Promise<Product[]> {
   if (!api) return [];
+  
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 6000);
+
   try {
     const res = await fetch(`${api}/product`, {
       next: { revalidate: 60 },
-    });    if (!res.ok || !res.headers.get("content-type")?.includes("application/json")) return [];
+      signal: controller.signal
+    });
+    clearTimeout(timeoutId);
+
+    if (!res.ok || !res.headers.get("content-type")?.includes("application/json")) return [];
     const data = await res.json();
     if (!data.products) return [];
 
