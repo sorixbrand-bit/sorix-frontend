@@ -63,13 +63,13 @@ const ProductCard = ({ data }: ProductCardProps) => {
         </div>
         <div className="-mt-1">
           <span className="text-black text-xs md:text-sm mr-1">Size:</span>
-          <span className="text-white/60 text-xs md:text-sm">
+          <span className="text-neutral-500 text-xs md:text-sm" style={{ color: '#666666' }}>
            {data.attributes[1]}
           </span>
         </div>
         <div className="mb-auto -mt-1.5">
           <span className="text-black text-xs md:text-sm mr-1">Color:</span>
-          <span className="text-white/60 text-xs md:text-sm">
+          <span className="text-neutral-500 text-xs md:text-sm" style={{ color: '#666666' }}>
              {data.attributes[0]}
           </span>
         </div>

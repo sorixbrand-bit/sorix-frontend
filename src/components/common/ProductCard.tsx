@@ -27,7 +27,7 @@ const ProductCard = ({ data, priority = false }: ProductCardProps) => {
         />
       </div>
       <strong className="text-black xl:text-xl">{data.title}</strong>
-      <p className="text-white/60 text-sm xl:text-base">{data.category}</p>
+      <p className="text-neutral-500 text-sm xl:text-base">{data.category}</p>
       <div className="flex items-center space-x-[5px] xl:space-x-2.5">
         <span className="font-bold text-black text-xl xl:text-2xl">
           ₹{data.price}

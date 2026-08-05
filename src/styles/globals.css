@@ -178,3 +178,8 @@
     color: hsl(var(--primary-foreground)) !important;
   }
 }
+
+.view-all-btn:hover {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}

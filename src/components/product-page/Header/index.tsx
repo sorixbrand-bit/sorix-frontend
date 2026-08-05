@@ -134,7 +134,7 @@ const Header = ({ data }: { data: Product }) => {
         </div>
 
         {/* Description */}
-        <p className="text-sm sm:text-base text-white/60 mb-5">
+        <p className="text-sm sm:text-base text-neutral-500 mb-5" style={{ color: '#666666' }}>
           {data.description ||
             "This product is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style."}
         </p>
@@ -145,8 +145,8 @@ const Header = ({ data }: { data: Product }) => {
         {variants.length > 0 && (
           <>
             <div className="flex flex-col mb-5">
-              <span className="text-sm sm:text-base text-white/60 mb-3 capitalize">
-                Select Color: <span className="text-white font-medium">{selectedVariant?.color}</span>
+              <span className="text-sm sm:text-base text-neutral-500 mb-3 capitalize" style={{ color: '#666666' }}>
+                Select Color: <span className="text-neutral-900 font-medium" style={{ color: '#000000' }}>{selectedVariant?.color}</span>
               </span>
               <div className="flex items-center flex-wrap gap-3">
                 {variants.map((v) => {
@@ -161,8 +161,8 @@ const Header = ({ data }: { data: Product }) => {
                       className={cn(
                         "w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 flex items-center justify-center transition-all hover:opacity-75",
                         selectedVariant?._id === v._id
-                          ? "border-white scale-110"
-                          : "border-white/30"
+                          ? "border-black scale-110"
+                          : "border-black/10"
                       )}
                       style={{ backgroundColor: resolvedColor }}
                     >
@@ -182,7 +182,7 @@ const Header = ({ data }: { data: Product }) => {
         {sizes.length > 0 && (
           <>
             <div className="flex flex-col mb-5">
-              <span className="text-sm sm:text-base text-white/60 mb-4">
+              <span className="text-sm sm:text-base text-neutral-500 mb-4" style={{ color: '#666666' }}>
                 Choose Size
               </span>
               <div className="flex items-center flex-wrap gap-3">
