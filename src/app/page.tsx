@@ -93,12 +93,12 @@ export default async function Home() {
             <h2 className={cn([integralCF.className, "text-[32px] md:text-5xl text-center mb-8 md:mb-14 capitalize"])}>
               Browse by Category
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
               {categories.map((cat) => (
                 <Link
                   key={cat._id}
                   href={`/shop?categories=${encodeURIComponent(cat.name)}`}
-                  className="group relative h-[280px] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 bg-[#FFFFFF] border border-black/5 flex flex-col justify-end"
+                  className="group relative h-[180px] sm:h-[220px] md:h-[280px] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 bg-[#FFFFFF] border border-black/5 flex flex-col justify-end"
                 >
                   {cat.image ? (
                     <img
@@ -115,8 +115,8 @@ export default async function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                   
                   {/* Category Name */}
-                  <div className="absolute bottom-6 left-6 right-6 text-left z-10">
-                    <h3 className="font-bold text-xl md:text-2xl text-white tracking-wide uppercase">
+                  <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 text-left z-10">
+                    <h3 className="font-bold text-sm sm:text-lg md:text-2xl text-white tracking-wide uppercase">
                       {cat.name}
                     </h3>
                     <span className="text-white/80 text-xs md:text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 block mt-1">
