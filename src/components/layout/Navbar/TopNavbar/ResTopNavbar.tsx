@@ -36,8 +36,8 @@ const ResTopNavbar = ({ data }: { data: NavMenu }) => {
         <SheetHeader className="mb-10">
           <SheetTitle asChild>
             <SheetClose asChild>
-              <Link href="/" className={cn([integralCF.className, "text-2xl"])}>
-                Easy com
+              <Link href="/" className={cn([integralCF.className, "text-2xl font-bold uppercase"])}>
+                SORIX
               </Link>
             </SheetClose>
           </SheetTitle>

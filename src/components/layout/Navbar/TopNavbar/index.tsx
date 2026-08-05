@@ -30,10 +30,10 @@ const TopNavbar = () => {
             <span
               className={cn([
                 integralCF.className,
-                "text-2xl text-white tracking-wide uppercase",
+                "text-2xl text-white tracking-wide uppercase font-bold",
               ])}
             >
-              sorix
+              SORIX
             </span>
           </Link>
         </div>
