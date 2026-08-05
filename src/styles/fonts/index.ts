@@ -1,15 +1,11 @@
+import { Montserrat } from "next/font/google";
 import localFont from "next/font/local";
 
-const integralCF = localFont({
-  src: [
-    {
-      path: "./integralcf-bold.woff",
-      weight: "700",
-      style: "normal",
-    },
-  ],
-  fallback: ["sans-serif"],
+const integralCF = Montserrat({
+  subsets: ["latin"],
+  weight: ["700", "800"],
   variable: "--font-integralCF",
+  display: "swap",
 });
 
 const satoshi = localFont({
