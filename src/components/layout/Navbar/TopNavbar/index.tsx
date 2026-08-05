@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { integralCF } from "@/styles/fonts";
+import { nasalization } from "@/styles/fonts";
 import Link from "next/link";
 import React, { Suspense, useState } from "react";
 import Image from "next/image";
@@ -29,7 +29,7 @@ const TopNavbar = () => {
             />
             <span
               className={cn([
-                integralCF.className,
+                nasalization.className,
                 "text-2xl text-white tracking-wide uppercase font-bold",
               ])}
             >

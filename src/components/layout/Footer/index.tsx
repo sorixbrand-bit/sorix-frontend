@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { integralCF } from "@/styles/fonts";
+import { nasalization } from "@/styles/fonts";
 import { PaymentBadge, SocialNetworks } from "./footer.types";
 import { FaInstagram } from "react-icons/fa";
 import Link from "next/link";
@@ -50,8 +50,8 @@ const Footer = () => {
             <div className="flex flex-col lg:col-span-3 lg:max-w-[248px]">
               <h1
                 className={cn([
-                  integralCF.className,
-                  "text-[28px] lg:text-[32px] mb-6 text-white",
+                  nasalization.className,
+                  "text-[28px] lg:text-[32px] mb-6 text-white font-bold",
                 ])}
               >
                 SORIX

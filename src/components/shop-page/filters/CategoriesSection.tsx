@@ -94,8 +94,8 @@ const CategoriesSection = () => {
                           <label key={sub.name} className="flex items-center space-x-2 cursor-pointer py-0.5">
                             <input
                               type="checkbox"
-                              checked={selectedCategories.includes(sub.name)}
-                              onChange={() => dispatch(toggleCategory(sub.name))}
+                              checked={selectedCategories.includes(parent.name + ":" + sub.name)}
+                              onChange={() => dispatch(toggleCategory(parent.name + ":" + sub.name))}
                               className="w-3.5 h-3.5 rounded border-black/30 cursor-pointer"
                             />
                             <span className="text-sm text-black/60">{sub.name}</span>

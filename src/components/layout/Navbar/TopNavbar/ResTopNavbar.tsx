@@ -10,7 +10,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { integralCF } from "@/styles/fonts";
+import { nasalization } from "@/styles/fonts";
 import { NavMenu } from "../navbar.types";
 import {
   Accordion,
@@ -36,7 +36,7 @@ const ResTopNavbar = ({ data }: { data: NavMenu }) => {
         <SheetHeader className="mb-10">
           <SheetTitle asChild>
             <SheetClose asChild>
-              <Link href="/" className={cn([integralCF.className, "text-2xl font-bold uppercase"])}>
+              <Link href="/" className={cn([nasalization.className, "text-2xl font-bold uppercase"])}>
                 SORIX
               </Link>
             </SheetClose>

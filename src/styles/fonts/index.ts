@@ -30,4 +30,16 @@ const satoshi = localFont({
   variable: "--font-satoshi",
 });
 
-export { integralCF, satoshi };
+const nasalization = localFont({
+  src: [
+    {
+      path: "./nasalization-rg.otf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  fallback: ["sans-serif"],
+  variable: "--font-nasalization",
+});
+
+export { integralCF, satoshi, nasalization };

@@ -79,10 +79,17 @@ const ShopProductsList = () => {
       if (categories) {
         const selected = categories.split(",").map(c => c.trim().toLowerCase()).filter(Boolean);
         if (selected.length > 0) {
-          filtered = filtered.filter(p =>
-            selected.includes((p.category || "").toLowerCase().trim()) ||
-            selected.includes((p.subcategory || "").toLowerCase().trim())
-          );
+          filtered = filtered.filter(p => {
+            const pCat = (p.category || "").toLowerCase().trim();
+            const pSub = (p.subcategory || "").toLowerCase().trim();
+            return selected.some(sel => {
+              if (sel.includes(":")) {
+                const [parentSel, childSel] = sel.split(":");
+                return pCat === parentSel && pSub === childSel;
+              }
+              return pCat === sel || pSub === sel;
+            });
+          });
         }
       }
       if (minPrice || maxPrice) {
