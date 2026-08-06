@@ -87,7 +87,9 @@ const Footer = () => {
           </nav>
 
           <hr className="h-[1px] border-t-gray-800 mb-6" />
-          <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center mb-2">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-[13px] text-gray-400 pb-2">
+            <span>Sorix © 2024-2026. All Rights Reserved.</span>
+            <span className="tracking-wider uppercase font-bold text-gray-300">Style in every thread</span>
           </div>
         </div>
         <LayoutSpacing />
