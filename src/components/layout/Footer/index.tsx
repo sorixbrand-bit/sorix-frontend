@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { nasalization } from "@/styles/fonts";
 import { PaymentBadge, SocialNetworks } from "./footer.types";
-import { FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
 import LinksSection from "./LinksSection";
@@ -12,6 +12,11 @@ const socialsData: SocialNetworks[] = [
     id: 3,
     icon: <FaInstagram />,
     url: "https://www.instagram.com/_sorix.clothing?igsh=ZWt4YjZxYmtheXVv",
+  },
+  {
+    id: 4,
+    icon: <FaWhatsapp />,
+    url: "https://whatsapp.com/channel/0029Vadplzk7dmeXi7hAQt2p",
   },
 ];
 
